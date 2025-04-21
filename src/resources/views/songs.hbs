@@ -1,0 +1,57 @@
+<div class="sidebar">
+    <h2>Music App</h2>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Users</a></li>
+        <li class="active"><a href="#">Songs</a></li>
+        <li><a href="#">Playlists</a></li>
+        <li><a href="#">Albums</a></li>
+        <li><a href="#">Artist</a></li>
+        <li><a href="#">Genres</a></li>
+        <li><a href="#">Tags</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>List of Songs</h1>
+    <div class="toolbar">
+        <input type="text" placeholder="Search">
+        <button class="btn-add">+ Add</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Thumbnail</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Tags</th>
+                <th>Audio</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each songs}}
+            <tr>
+                <td><img src="{{thumbnail}}" alt="Thumbnail"></td>
+                <td>{{name}}</td>
+                <td>{{date}}</td>
+                <td>
+                    {{#each tags}}
+                        <span class="tag">{{this}}</span>
+                    {{/each}}
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="{{audio}}" type="audio/mpeg">
+                    </audio>
+                </td>
+                <td>
+                    <button class="btn-edit">✏️</button>
+                    <button class="btn-delete">🗑️</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
